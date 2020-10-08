@@ -22,13 +22,18 @@ attendance
 
 main
 
-isFullTime=1;
+isPartTime=1;
+isFullTime=2;
 empRatePerHr=20;
-randomCheck=$((RANDOM%2))
-if [ $isFullTime -eq $randomCheck ];
+randomCheck=$((RANDOM%3));
+
+if [ $isFullTime = $randomCheck ]
 then
-	empHrs=8;
+        empHrs=8;
+elif [ $isPartTime -eq $randomCheck ]
+then
+        empHrs=8;
 else
-	empHrs=0;
+        empHrs=0;
 fi
-dailywage=$(($empHrs*$empRatePerHr))
+salary=$(($empRatePerHr*$empHrs));
